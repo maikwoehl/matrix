@@ -31,3 +31,17 @@ uint8_t matrix_set(uint8_t *row, uint8_t *col)
     COLPORT = ~(*row);
     return 1;
 }
+
+/**
+ * Counts up the columns and returns the current column
+ */
+uint8_t* matrix_scan() 
+{
+    static uint8_t line = 1;
+
+    line = line<<1;
+    if (!line)
+        line = 1;
+
+    return &line;
+}

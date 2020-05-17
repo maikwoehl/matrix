@@ -26,3 +26,4 @@
 
 uint8_t matrix_init();
 uint8_t matrix_set(uint8_t *row, uint8_t *col);
+uint8_t* matrix_scan();
