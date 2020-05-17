@@ -75,7 +75,6 @@ download:
 	
 github:
 	@mkdir $(ODIR)
-	@mkdir $(BDIR)
 
 .PHONY: clean
 
