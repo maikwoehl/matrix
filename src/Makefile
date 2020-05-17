@@ -37,8 +37,8 @@ LIBS=
 
 # TOOLCHAIN LINKS
 LIBC = $(AVR_TOOLCHAIN)/avr/include
-CC = $(AVR_TOOLCHAIN)/bin/avr-gcc
-LD = $(AVR_TOOLCHAIN)/bin/avr-objcopy
+CC = avr-gcc
+LD = avr-objcopy
 
 # SEARCH PATHS
 IDIR = ../inc
@@ -58,6 +58,7 @@ PFLAGS = -p $(TARGET) -c $(PROGRAMMER) -P $(PORT) -e -v
 all: $(OBJS)
 	@echo CC $(basename $(notdir $^))
 	@$(CC) $(CFLAGS) -Os $^ -o $(ODIR)/$(PROJECT).o
+		
 	@echo LD $(basename $(notdir $(PROJECT)))
 	@$(LD) $(LDFLAGS) $(ODIR)/$(PROJECT).o $(BDIR)/$(PROJECT).hex
 
@@ -71,6 +72,9 @@ $(ODIR)/%.o: %.c $(DEPS)
 	
 download:
 	$(DUDE) $(PFLAGS) -U flash:w:$(BDIR)/$(PROJECT).hex
+	
+github:
+	@mkdir $(ODIR)
 
 .PHONY: clean
 
