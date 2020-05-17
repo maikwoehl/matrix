@@ -58,10 +58,7 @@ PFLAGS = -p $(TARGET) -c $(PROGRAMMER) -P $(PORT) -e -v
 all: $(OBJS)
 	@echo CC $(basename $(notdir $^))
 	@$(CC) $(CFLAGS) -Os $^ -o $(ODIR)/$(PROJECT).o
-	
-	@mkdir $(ODIR)
-	@mkdir $(BDIR)
-	
+		
 	@echo LD $(basename $(notdir $(PROJECT)))
 	@$(LD) $(LDFLAGS) $(ODIR)/$(PROJECT).o $(BDIR)/$(PROJECT).hex
 
@@ -75,6 +72,10 @@ $(ODIR)/%.o: %.c $(DEPS)
 	
 download:
 	$(DUDE) $(PFLAGS) -U flash:w:$(BDIR)/$(PROJECT).hex
+	
+github:
+	@mkdir $(ODIR)
+	@mkdir $(BDIR)
 
 .PHONY: clean
 
