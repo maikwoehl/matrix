@@ -19,3 +19,10 @@
 #define ROW6    (1<<5)
 #define ROW7    (1<<6)
 #define ROW8    (1<<7)
+
+#include <avr/io.h>
+
+#include "shift_register.h"
+
+uint8_t matrix_init();
+uint8_t matrix_set(uint8_t *row, uint8_t *col);

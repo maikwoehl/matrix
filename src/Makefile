@@ -3,7 +3,7 @@
 # Edit the settings to your needs
 
 # Your project name (no whitespace)
-PROJECT 	= matrix
+PROJECT 	= Matrix
 # Programmer device
 PORT 		= /dev/ttyACM0
 # Compiler target (avr-gcc)
@@ -26,7 +26,7 @@ DUDE 			= /usr/bin/avrdude
 # 
 # Example:
 # MODULES = fourier integration 
-MODULES = future shift_register board
+MODULES = future shift_register dip_switch patterns matrix
 
 # Any c libs that you wand to include
 # Example:

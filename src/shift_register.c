@@ -4,7 +4,7 @@
 /**
  * Initializes the gpio pins for usage. 
  */
-int sr_init()
+uint8_t sr_init()
 {
     CLKDDR |= RCK | SCK;
     SDADDR |= SDA;
@@ -15,13 +15,15 @@ int sr_init()
 /**
  * Shifts the given data into the register. 
  * 
+ * This function consumes the data.
+ * 
  * \param data The given 8-bit value is shifted LSB-first into the register.
  */
-int sr_push(uint8_t data)
+uint8_t sr_push(uint8_t *data)
 {
     for (int i = 0; i < 8; ++i)
     {
-        switch((data>>i) & 1) {
+        switch ( (*data>>i) & 1) {
             case 1:
                 SDAPORT |= SDA;
             break;
@@ -42,22 +44,22 @@ int sr_push(uint8_t data)
 /**
  * Latch out the shift register value to the output latch. 
  */
-int sr_flush()
+uint8_t sr_flush()
 {
     CLKPORT |= RCK;
     delay(WAIT_MS);
     CLKPORT &= ~RCK;
-Clear the shift register with help of sr_push(). 
+
     return 1;
 }
 
 /**
  * Clear the shift register with help of sr_push(). 
  */
-int sr_clear()
+uint8_t sr_clear()
 {
     uint8_t zeros = 0x00;
-    if (sr_push(zeros))
+    if (sr_push(&zeros))
         return 1;
     return 0;
 }

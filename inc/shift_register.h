@@ -1,9 +1,8 @@
 #define CLKDDR  DDRB
 #define CLKPORT PORTB
-// Save action
-#define RCK     (1<<PB1)
-// Shift into action
-#define SCK     (1<<PB2)
+
+#define SCK     (1<<PB2)        // Shift into shift register
+#define RCK     (1<<PB1)        // Latch to output register
 
 #define SDADDR  DDRC
 #define SDAPORT PORTC
@@ -15,7 +14,7 @@
 
 #include "../inc/future.h"
 
-int sr_init();
-int sr_push(uint8_t data);
-int sr_flush();
-int sr_clear();
+uint8_t sr_init();
+uint8_t sr_push(uint8_t *data);
+uint8_t sr_flush();
+uint8_t sr_clear();
