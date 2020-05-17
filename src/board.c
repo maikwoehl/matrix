@@ -1,12 +1,20 @@
 #include "../inc/board.h"
 
+/**
+ * The column output must be set to output. And the shift register must be 
+ * initialized and cleared. Preferably clear the shift register first, as 
+ * it can contain random bits.
+*/
 int board_init() 
 {
+    sr_init();
+    sr_clear();
+    sr_flush();
+    
     // Column initialization
     COLDDR |= COL1 | COL2 | COL3 | COL4;
     COLDDR |= COL5 | COL6 | COL7 | COL8;
-
-    sr_init();
+    
     return 1;
 }
 

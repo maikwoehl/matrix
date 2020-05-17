@@ -1,2 +1,5 @@
 src/obj
+doc/doxygen/out
+
 *.o
+*~

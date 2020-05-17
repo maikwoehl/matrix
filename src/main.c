@@ -1,3 +1,10 @@
+/**
+ * \mainpage 8x8 dotmatrix with control module
+ * \author Maik Wöhl
+ * \date May 2020
+ * 
+ * \image html kicad_3d.png width=350
+ */
 #include <stdint.h>
 
 #include "../inc/board.h"
