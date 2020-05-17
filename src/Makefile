@@ -58,6 +58,10 @@ PFLAGS = -p $(TARGET) -c $(PROGRAMMER) -P $(PORT) -e -v
 all: $(OBJS)
 	@echo CC $(basename $(notdir $^))
 	@$(CC) $(CFLAGS) -Os $^ -o $(ODIR)/$(PROJECT).o
+	
+	@mkdir $(ODIR)
+	@mkdir $(BDIR)
+	
 	@echo LD $(basename $(notdir $(PROJECT)))
 	@$(LD) $(LDFLAGS) $(ODIR)/$(PROJECT).o $(BDIR)/$(PROJECT).hex
 
