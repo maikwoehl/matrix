@@ -1,5 +1,9 @@
-# Matrix-Modul mit Steuerung
+![C/C++ CI](https://github.com/maikwoehl/matrix/workflows/C/C++%20CI/badge.svg)
 
-Vor über einem Jahr habe ich mit der Entwicklung einer Steuerplatine angefangen, die eine Matrix ansteuern soll. Im ersten Ansatz wollte ich damit eine große Matrix ansteuern, die über eine Leistungsstufe angesteuert werden hätte müssen. Nachdem ich diese Matrix nicht richtig aufgebaut habe, habe ich fertige Module gekauft. Diese Module musste ich dann jedoch auch noch auf eine Platine löten, was ich jetzt geschafft habe. 
+# 8x8 dot matrix with control module
 
-Nun habe ich ein erstes Programm geschrieben, das gut funktioniert. In Zukunft sollen über den DIP-Schalter verschiedene Muster und Abläufe ausgewählt werden können.
+A year ago I have developed a control module for interfacing a 8x8 dot matrix. At first I wanted to interface big matrix thus I needed to use a transistor stage for that. I was not lucky building that matrix, so I decided to use an 8x8 dotmatrix display off the shelf. Now I was able to build a reasonable PCB to mount the matrix display on.
+
+You can build this on your own. Look into the pages at the right side.
+
+For further information take a look into the [Wiki](https://github.com/maikwoehl/matrix/wiki).
