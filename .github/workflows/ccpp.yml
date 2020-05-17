@@ -18,4 +18,5 @@ jobs:
     - name: make
       run: |
         cd src/
+        make github
         make
