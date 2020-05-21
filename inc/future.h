@@ -9,4 +9,5 @@ extern void setup (void);
 extern void loop  (void);
 
 void delay (double ms);
+void delay_us (double us);
 

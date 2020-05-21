@@ -32,9 +32,12 @@ uint8_t sr_push(uint8_t *data)
                 SDAPORT &= ~SDA;
             break;
         }
-        delay(WAIT_MS);
+        /**
+         * We don't need to wait for the shift register to catch up. 
+         * The context switch with 1MHz internal clock is already fast enough
+         * for multiplexing and slow enough for the shift register.
+         */
         CLKPORT |= SCK;
-        delay(WAIT_MS);
         CLKPORT &= ~SCK;
     }
 
@@ -47,7 +50,6 @@ uint8_t sr_push(uint8_t *data)
 uint8_t sr_flush()
 {
     CLKPORT |= RCK;
-    delay(WAIT_MS);
     CLKPORT &= ~RCK;
 
     return 1;

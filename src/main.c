@@ -27,8 +27,8 @@ void loop(void) {
 	static uint8_t pattern_selection = DS_NO_VALUE;
 	pattern_selection = ds_read();
 	uint8_t* line = matrix_scan();
-	uint8_t row = pattern_selection;
+	uint8_t pattern = pattern_selection;
+    uint8_t row = (pattern<<4) | pattern;
 	matrix_set(&row, line);
-	delay(20);
 }
  

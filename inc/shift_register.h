@@ -8,8 +8,6 @@
 #define SDAPORT PORTC
 #define SDA     (1<<PC4)
 
-#define WAIT_MS 10
-
 #include <avr/io.h>
 
 #include "../inc/future.h"
