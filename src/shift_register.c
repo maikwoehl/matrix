@@ -2,7 +2,7 @@
 
 
 /**
- * Initializes the gpio pins for usage. 
+ * Initializes the gpio pins for usage.
  */
 uint8_t sr_init()
 {
@@ -13,10 +13,10 @@ uint8_t sr_init()
 }
 
 /**
- * Shifts the given data into the register. 
- * 
+ * Shifts the given data into the register.
+ *
  * This function consumes the data.
- * 
+ *
  * \param data The given 8-bit value is shifted LSB-first into the register.
  */
 uint8_t sr_push(uint8_t *data)
@@ -26,14 +26,14 @@ uint8_t sr_push(uint8_t *data)
         switch ( (*data>>i) & 1) {
             case 1:
                 SDAPORT |= SDA;
-            break;
+                break;
             case 0:
             default:
                 SDAPORT &= ~SDA;
-            break;
+                break;
         }
         /**
-         * We don't need to wait for the shift register to catch up. 
+         * We don't need to wait for the shift register to catch up.
          * The context switch with 1MHz internal clock is already fast enough
          * for multiplexing and slow enough for the shift register.
          */
@@ -45,7 +45,7 @@ uint8_t sr_push(uint8_t *data)
 }
 
 /**
- * Latch out the shift register value to the output latch. 
+ * Latch out the shift register value to the output latch.
  */
 uint8_t sr_flush()
 {
@@ -56,7 +56,7 @@ uint8_t sr_flush()
 }
 
 /**
- * Clear the shift register with help of sr_push(). 
+ * Clear the shift register with help of sr_push().
  */
 uint8_t sr_clear()
 {

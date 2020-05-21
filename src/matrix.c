@@ -33,11 +33,12 @@ uint8_t matrix_set(uint8_t *row, uint8_t *col)
 }
 
 /**
- * Counts up the columns and returns the current column
+ * Counts up the columns and returns the current column.
+ * Starts with zero -> first execution will lead to a `1` returned.
  */
 uint8_t* matrix_scan() 
 {
-    static uint8_t line = 1;
+    static uint8_t line = 0;
 
     line = line<<1;
     if (!line)
