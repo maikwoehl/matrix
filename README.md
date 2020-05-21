@@ -1,4 +1,4 @@
-![C/C++ CI](https://github.com/maikwoehl/matrix/workflows/C/C++%20CI/badge.svg)
+![build](https://github.com/maikwoehl/matrix/workflows/build/badge.svg)
 
 # 8x8 dot matrix with control module
 

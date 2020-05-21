@@ -25,12 +25,15 @@ void setup(void) {
     ds_init();
     matrix_init();
     uint8_t pattern_selection = ds_read();
-    pattern = patterns[pattern_selection];
+    if (pattern_selection < MAX_PATTERNS)
+        pattern = patterns[pattern_selection];
+    else
+        pattern = patterns[0];
 }
 
 /**
  * col_idx: 0..7 -> iterates over columns of pattern
- * col: selects every column individually by shifting a bit by 1 
+ * col: selects every column individually by shifting a bit by 1
  *      from right to left.
  */
 void loop(void) {
@@ -39,9 +42,9 @@ void loop(void) {
 
     /**
      * pattern points to the base of the selected pattern array.
-     * *(pattern + col_idx) will select the byte in memory what should 
-     * be displayed. So we pass the memory address (pointer value) to the 
-     * `matrix_set()` function. 
+     * *(pattern + col_idx) will select the byte in memory what should
+     * be displayed. So we pass the memory address (pointer value) to the
+     * `matrix_set()` function.
      */
     uint8_t* row = pattern + col_idx;
     matrix_set(row, col);

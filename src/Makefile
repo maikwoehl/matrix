@@ -41,6 +41,7 @@ CC = avr-gcc
 LD = avr-objcopy
 
 # SEARCH PATHS
+DOCDIR = ../doc/doxygen
 IDIR = ../inc
 LDIR = ../lib
 BDIR = bin
@@ -75,8 +76,10 @@ download:
 	
 github:
 	@mkdir $(ODIR)
-
+doc:
+	@cd $(DOCDIR); doxygen
 .PHONY: clean
 
 clean:
 	rm -rf $(ODIR)/*.o *~ $(BDIR)/*.hex
+	rm -rf $(DOCDIR)/*
