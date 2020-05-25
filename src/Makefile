@@ -61,6 +61,7 @@ all: $(OBJS)
 	@$(CC) $(CFLAGS) -Os $^ -o $(ODIR)/$(PROJECT).o
 		
 	@echo LD $(basename $(notdir $(PROJECT)))
+	@mkdir $(BDIR)
 	@$(LD) $(LDFLAGS) $(ODIR)/$(PROJECT).o $(BDIR)/$(PROJECT).hex
 
 	@echo 
