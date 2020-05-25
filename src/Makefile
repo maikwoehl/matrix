@@ -41,7 +41,7 @@ CC = avr-gcc
 LD = avr-objcopy
 
 # SEARCH PATHS
-DOCDIR = ../doc/doxygen
+DOCDIR = ../doc/doxygen/out
 IDIR = ../inc
 LDIR = ../lib
 BDIR = bin
