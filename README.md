@@ -7,3 +7,7 @@ A year ago I have developed a control module for interfacing a 8x8 dot matrix. A
 You can build this on your own. Look into the pages at the right side.
 
 For further information take a look into the [Wiki](https://github.com/maikwoehl/matrix/wiki).
+
+## Patterns
+
+I have created some basic patterns. You can look at them in the `doc/`-Directory.
